@@ -8,7 +8,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className='bg-white'>
       <Topbar />
       <Header />
       <Breadcrumb title="Contact Us" currentPage="Contact Us" bgImage='breadcrumb-bg2.jpg' />

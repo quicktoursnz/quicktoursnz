@@ -11,7 +11,7 @@ import React from 'react'
 
 const page = () => {
     return (
-        <>
+        <div className='bg-white'>
             <Header />
             <Breadcrumb title="About GoFly" currentPage="About GoFly" bgImage='breadcrumb-bg2.jpg' />
             <AboutSection />
@@ -21,7 +21,7 @@ const page = () => {
             <Faq />
             <Counter />
             <Footer />
-        </>
+        </div>
     )
 }
 

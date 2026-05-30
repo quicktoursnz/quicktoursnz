@@ -3,10 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import AuthModal from '../authModal'
+import {useUser} from '../../context/UserContext'
+import { LogOut } from 'lucide-react'
 
 const Topbar = () => {
       const [isActive, setIsActive] = useState(false);
       const [isOpen, setIsOpen] = useState(false);
+      const {user, logout} = useUser();
 
   const handleToggle = () => {
     setIsActive((prev) => !prev);
@@ -17,7 +20,7 @@ const Topbar = () => {
                 <div className="topbar-wrap">
                     <div className="logo-and-search-area">
                         <Link href="/" className="header-logo">
-                            <Image width={200} height={200} src="/assets/img/header-logo.svg" alt="" />
+                            <Image width={200} height={200} src="/assets/img/quicktours.png" alt="" />
                         </Link>
                         {/* <form className="search-area">
                             <div className="form-inner">
@@ -33,8 +36,7 @@ const Topbar = () => {
                         </form> */}
                     </div>
                     <div className="topbar-right">
-                        <div className="support-and-language-area">
-                            {/* <a href="#">Need Help?</a> */}
+                        {/* <div className="support-and-language-area">
                             <div className="language-area">
                                 <div className="language-btn" onClick={handleToggle}>
                                     <svg width={14} height={14} viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +58,13 @@ const Topbar = () => {
                                     <li><a href="#"><Image width={18} height={18} src="/assets/img/home1/china-flag.png" alt="" />Chinese</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
+                        {user ? (
+                            <button style={{borderRadius: '8px'}} className='bg-red-600 py-1 px-2 flex items-center gap-1' onClick={logout}>
+                                Logout
+                                <LogOut size={16} />
+                            </button>
+                        ) : (
                         <button onClick={()=> setIsOpen(true)} className="primary-btn1 black-bg">
                             <span>
                                 <svg width={15} height={15} viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
@@ -75,6 +83,7 @@ const Topbar = () => {
                                 Login
                             </span>
                         </button>
+                        )}
                     </div>
                 </div>
             </div>

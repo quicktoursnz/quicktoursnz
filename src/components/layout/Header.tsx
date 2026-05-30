@@ -1,8 +1,11 @@
 "use client"
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useState, useReducer } from 'react'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import {useUser} from '../../context/UserContext';
+import AuthModal from '../authModal'
+import {LogOut} from 'lucide-react';
 
 // Define the shape of the state
 interface State {
@@ -92,10 +95,12 @@ function reducer(state: State, action: Action): State {
 const Header = () => {
   // Type the useReducer hook
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [isOpen, setIsOpen] = useState(false);
   // Type the useRef hook for an HTMLElement (specifically a <header> element)
 
   // usePathname can return string | null, asserting as string for common use case
   const pathname = usePathname() as string;
+  const {user, logout} = useUser();
 
   const handleScroll = () => {
     // Ensure window is defined for client-side operations
@@ -206,12 +211,12 @@ const Header = () => {
     <header className="style-1">
       <div className="container d-flex flex-nowrap align-items-center justify-content-between">
         <Link href="/" className="header-logo d-lg-none d-block">
-          <Image width={100} height={40} src="/assets/img/header-logo.svg" alt="" />
+          <Image width={100} height={40} src="/assets/img/quicktours.png" alt="" />
         </Link>
         <div className={`main-menu ${state.isSidebarOpen ? "show-menu" : ""}`}>
           <div className="mobile-logo-area d-lg-none d-flex align-items-center justify-content-between">
             <Link href="/" className="mobile-logo-wrap">
-              <Image width={100} height={40} src="/assets/img/header-logo.svg" alt="" />
+              <Image width={100} height={40} src="/assets/img/quicktours.png" alt="" />
             </Link>
             <div className="menu-close-btn" onClick={toggleSidebar}>
               <i className="bi bi-x" />
@@ -221,10 +226,10 @@ const Header = () => {
             <li className={`menu-item-has-children  ${isHomeActive ? "active" : ""}`}>
               <Link href="/" className="drop-down">
                 Home
-                <i className="bi bi-caret-down-fill" />
+                {/* <i className="bi bi-caret-down-fill" /> */}
               </Link>
-              <i onClick={() => toggleMenu("HOME")} className={`bi bi-${state.activeMenu === "HOME" ? "dash" : "plus"} dropdown-icon`} />
-              <ul className={`sub-menu ${state.activeMenu === "HOME" ? "d-block" : "none"}`}>
+              {/* <i onClick={() => toggleMenu("HOME")} className={`bi bi-${state.activeMenu === "HOME" ? "dash" : "plus"} dropdown-icon`} /> */}
+              {/* <ul className={`sub-menu ${state.activeMenu === "HOME" ? "d-block" : "none"}`}>
                 <li ><Link href="/">Main Home</Link></li>
                 <li className={`${pathname === "/travel-agency-01" ? "active" : ""}`}><Link href="/travel-agency-01">Travel Agency-01</Link></li>
                 <li className={`${pathname === "/travel-agency-02" ? "active" : ""}`}><Link href="/travel-agency-02">Travel Agency-02</Link></li>
@@ -233,9 +238,9 @@ const Header = () => {
                 <li className={`${pathname === "/experience-01" ? "active" : ""}`}><Link href="/experience-01">Experience-01</Link></li>
                 <li className={`${pathname === "/experience-02" ? "active" : ""}`}><Link href="/experience-02">Experience-02</Link></li>
                 <li className={`${pathname === "/visa-agency" ? "active" : ""}`}><Link href="/visa-agency">Visa Agency</Link></li>
-              </ul>
+              </ul> */}
             </li>
-            <li className="menu-item-has-children position-inherit">
+            {/* <li className="menu-item-has-children position-inherit">
               <Link href="/destination" className="drop-down">
                 Destination
                 <i className="bi bi-caret-down-fill" />
@@ -489,7 +494,7 @@ const Header = () => {
                 <Image width={275} height={365} src="/assets/img/home1/mega-menu-vector1.svg" alt="" className="vector1" />
                 <Image width={275} height={365} src="/assets/img/home1/mega-menu-vector2.svg" alt="" className="vector2" />
               </div>
-            </li>
+            </li> */}
             <li className={`menu-item-has-children ${istravelActive ? "active" : ""}`}>
               <Link href="/travel-package" className="drop-down">
                 Travel Package
@@ -502,7 +507,7 @@ const Header = () => {
                 <li className={pathname === "/travel-package/details" ? "active" : ""}><Link href="/travel-package/details">Travel Package Details</Link></li>
               </ul>
             </li>
-            <li className={`menu-item-has-children ${isVisaPathsActive ? "active" : ""}`}>
+            {/* <li className={`menu-item-has-children ${isVisaPathsActive ? "active" : ""}`}>
               <Link href="/visa" className="drop-down">
                 Visa
                 <i className="bi bi-caret-down-fill" />
@@ -512,84 +517,16 @@ const Header = () => {
                 <li className={pathname === "/visa" ? "active" : ""}><Link href="/visa">Visa Package</Link></li>
                 <li className={pathname === "/visa/details" ? "active" : ""}><Link href="/visa/details">Visa Package Details</Link></li>
               </ul>
-            </li>
+            </li> */}
             <li className={`menu-item-has-children ${isInnerPagePaths ? "active" : ""}`}>
-              <a href="#" className="drop-down">
-                Pages
-                <i className="bi bi-caret-down-fill" />
+              <a href="/about" className="drop-down">
+                About Us
               </a>
-              <i onClick={() => toggleMenu("pages")} className={`bi bi-${state.activeMenu === "pages" ? "dash" : "plus"} dropdown-icon`} />
-              <ul className={`sub-menu ${state.activeMenu === "pages" ? "d-block" : "none"}`}>
-                <li className={pathname === "/about" ? "active" : ""}><Link href="/about">About GoFly</Link></li>
-                <li>
-                  <Link href="/destination">Destination</Link>
-                  <i className="d-lg-flex d-none bi-caret-right-fill dropdown-icon" />
-
-                  <i onClick={() => toggleSubMenu("destinations")} className={`d-lg-none d-flex bi bi-${state.activeSubMenu === "destinations" ? "dash" : "plus"} dropdown-icon`} />
-                  <ul className={`sub-menu ${state.activeSubMenu === "destinations" ? "d-block" : "none"}`}>
-                    <li className={pathname === "/destination" ? "active" : ""}><Link href="/destination">Destination Style 01</Link></li>
-                    <li className={pathname === "/destination/style2" ? "active" : ""}><Link href="/destination/style2">Destination Style 02</Link></li>
-                    <li className={pathname === "/destination/style3" ? "active" : ""}><Link href="/destination/style3">Destination Style 03</Link></li>
-                    <li className={pathname === "/destination/style4" ? "active" : ""}><Link href="/destination/style4">Destination Style 04</Link></li>
-                    <li className={pathname === "/destination/style5" ? "active" : ""}><Link href="/destination/style5">Destination Style 05</Link></li>
-                    <li className={pathname === "/destination/style6" ? "active" : ""}><Link href="/destination/style6">Destination Style 06</Link></li>
-                    <li className={pathname === "/destination/details" ? "active" : ""}><Link href="/destination/details">Destination Details</Link></li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="/experience-grid">Experience</Link>
-                  <i className="d-lg-flex d-none bi-caret-right-fill dropdown-icon" />
-                  <i onClick={() => toggleSubMenu("expriences")} className={`d-lg-none d-flex bi bi-${state.activeSubMenu === "expriences" ? "dash" : "plus"} dropdown-icon`} />
-                  <ul className={`sub-menu ${state.activeSubMenu === "expriences" ? "d-block" : "none"}`}>
-                    <li className={pathname === "/experience-grid" ? "active" : ""}><Link href="/experience-grid">Experience Grid</Link></li>
-                    <li className={pathname === "/experience-details" ? "active" : ""}><Link href="/experience-details">Experience Details</Link></li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="/hotel">Hotel</Link>
-                  <i className="d-lg-flex d-none bi-caret-right-fill dropdown-icon" />
-                  <i onClick={() => toggleSubMenu("hotel")} className={`d-lg-none d-flex bi bi-${state.activeSubMenu === "hotel" ? "dash" : "plus"} dropdown-icon`} />
-                  <ul className={`sub-menu ${state.activeSubMenu === "hotel" ? "d-block" : "none"}`}>
-                    <li className={pathname === "/hotel" ? "active" : ""}><Link href="/hotel">Hotel</Link></li>
-                    <li className={pathname === "/hotel/details" ? "active" : ""}><Link href="/hotel/details">Hotel Details</Link></li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="/travel-inspiration">Travel Inspiration</Link>
-                  <i className="d-lg-flex d-none bi-caret-right-fill dropdown-icon" />
-                  <i onClick={() => toggleSubMenu("travel-inspiration")} className={`d-lg-none d-flex bi bi-${state.activeSubMenu === "travel-inspiration" ? "dash" : "plus"} dropdown-icon`} />
-                  <ul className={`sub-menu ${state.activeSubMenu === "travel-inspiration" ? "d-block" : "none"}`}>
-                    <li className={pathname === "/travel-inspiration" ? "active" : ""}><Link href="/travel-inspiration">Travel Inspiration Style 01</Link></li>
-                    <li className={pathname === "/travel-inspiration/style2" ? "active" : ""}><Link href="/travel-inspiration/style2">Travel Inspiration Style 02</Link></li>
-                    <li className={pathname === "/travel-inspiration/style3" ? "active" : ""}><Link href="/travel-inspiration/style3">Travel Inspiration Style 03</Link></li>
-                    <li className={pathname === "/travel-inspiration/details" ? "active" : ""}><Link href="/travel-inspiration/details">Travel Inspiration Details</Link></li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="/guider">Guider</Link>
-                  <i className="d-lg-flex d-none bi-caret-right-fill dropdown-icon" />
-                  <i onClick={() => toggleSubMenu("guider")} className={`d-lg-none d-flex bi bi-${state.activeSubMenu === "guider" ? "dash" : "plus"} dropdown-icon`} />
-                  <ul className={`sub-menu ${state.activeSubMenu === "guider" ? "d-block" : "none"}`}>
-                    <li className={pathname === "/guider" ? "active" : ""}><Link href="/guider">Guider</Link></li>
-                    <li className={pathname === "/guider-details" ? "active" : ""}><Link href="/guider-details">Guider Details</Link></li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="/shop">Shop</Link>
-                  <i className="d-lg-flex d-none bi-caret-right-fill dropdown-icon" />
-                  <i onClick={() => toggleSubMenu("shop")} className={`d-lg-none d-flex bi bi-${state.activeSubMenu === "shop" ? "dash" : "plus"} dropdown-icon`} />
-                  <ul className={`sub-menu ${state.activeSubMenu === "shop" ? "d-block" : "none"}`}>
-                    <li className={pathname === "/shop" ? "active" : ""}><Link href="/shop">Shop</Link></li>
-                    <li className={pathname === "/cart" ? "active" : ""}><Link href="/cart">Cart</Link></li>
-                    <li className={pathname === "/checkout" ? "active" : ""}><Link href="/checkout">Checkout</Link></li>
-                    <li className={pathname === "/product-details" ? "active" : ""}><Link href="/product-details">Product Details</Link></li>
-                  </ul>
-                </li>
-                <li className={pathname === "/faq" ? "active" : ""}><Link href="/faq">Faq</Link></li>
-                <li className={pathname === "/error" ? "active" : ""}><Link href="/error">404</Link></li>
-              </ul>
             </li>
             <li className={pathname === "/contact" ? "active" : ""}><Link href="/contact">Contact</Link></li>
+            {user && user.role === 'admin' && (
+              <li className={pathname === "/admin" ? "active" : ""}><Link href="/admin">Admin</Link></li>
+            )}
           </ul>
           <div className="contact-area d-lg-none d-flex">
             <div className="single-contact">
@@ -598,32 +535,18 @@ const Header = () => {
               </div>
               <div className="content">
                 <span>WhatsApp</span>
-                <a href="https://wa.me/91345533865">+91 345 533 865</a>
+                <a href="https://wa.me/64277883000">+64277883000</a>
               </div>
             </div>
-            <i className="bi bi-caret-down-fill contact-dropdown-btn" onClick={toggleContact} />
-            <ul className={`contact-list ${state.isContact ? "active" : ""}`}>
-              <li className="single-contact">
-                <div className="icon">
-                  <Image width={20} height={20} src="/assets/img/home1/icon/mail-icon.svg" alt="" />
-                </div>
-                <div className="content">
-                  <span>Mail Support</span>
-                  <a href="mailto:info@example.com">info@example.com</a>
-                </div>
-              </li>
-              <li className="single-contact">
-                <div className="icon">
-                  <Image width={20} height={20} src="/assets/img/home1/icon/live-chat.svg" alt="" />
-                </div>
-                <div className="content">
-                  <span>More Inquery</span>
-                  <a href="https://wa.me/91345533865">+91 345 533 865</a>
-                </div>
-              </li>
-            </ul>
+            {/* <i className="bi bi-caret-down-fill contact-dropdown-btn" onClick={toggleContact} /> */}
           </div>
-          <a href="#" className="primary-btn1 black-bg d-lg-none d-flex">
+          {user ? (
+              <button style={{borderRadius: '8px'}} className='bg-red-600 py-1 px-2 flex items-center gap-1 d-lg-none' onClick={logout}>
+                  Logout
+                  <LogOut size={16} />
+              </button>
+          ): (
+          <button onClick={()=> {toggleSidebar(); setIsOpen(true)}} className="primary-btn1 black-bg d-lg-none d-flex">
             <span>
               <svg width={15} height={15} viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
                 <g>
@@ -640,7 +563,9 @@ const Header = () => {
               </svg>
               Login
             </span>
-          </a>
+          </button>
+            
+          )}
         </div>
         <div className="nav-right">
           <div className="contact-area d-lg-flex d-none">
@@ -666,7 +591,7 @@ const Header = () => {
               </li>
             </ul> */}
           </div>
-          <div className="language-area d-lg-none d-block">
+          {/* <div className="language-area d-lg-none d-block">
             <div className="language-btn">
               <svg width={14} height={14} viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
                 <g>
@@ -686,8 +611,8 @@ const Header = () => {
               <li><a href="#"><Image width={18} height={18} src="/assets/img/home1/korea-flag.png" alt="" />Korean</a></li>
               <li><a href="#"><Image width={18} height={18} src="/assets/img/home1/china-flag.png" alt="" />Chinese</a></li>
             </ul>
-          </div>
-          <div className="search-bar d-lg-none d-block">
+          </div> */}
+          {/* <div className="search-bar d-lg-none d-block">
             <div className="search-btn" onClick={toggleSearchbar}>
               <svg width={16} height={16} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <g>
@@ -718,7 +643,7 @@ const Header = () => {
                 </div>
               </form>
             </div>
-          </div>
+          </div> */}
           <div className="sidebar-button mobile-menu-btn" onClick={toggleSidebar}>
             <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
               <path d="M1.29445 2.8421H10.5237C11.2389 2.8421 11.8182 2.2062 11.8182 1.42105C11.8182 0.635903 11.2389 0 10.5237 0H1.29445C0.579249 0 0 0.635903 0 1.42105C0 2.2062 0.579249 2.8421 1.29445 2.8421Z" />
@@ -728,6 +653,9 @@ const Header = () => {
           </div>
         </div>
       </div>
+        {isOpen && (
+                      <AuthModal isOpen={isOpen} setIsOpen={setIsOpen} />
+                      )}
     </header>
   )
 }

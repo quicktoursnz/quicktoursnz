@@ -53,14 +53,14 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
       <div className="bg-white px-4 rounded-2xl w-96 shadow-xl overflow-hidden border border-yellow-100">
 
         {/* Top accent bar */}
-        <div className="h-1 w-full bg-primary" />
+        <div className="h-1 w-full bg-[#e8c96a]" />
 
         <div className="px-8 mt-4">
           {/* Icon */}
           <div className="flex justify-between items-start">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-5">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="#1781fe" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              stroke="#e8c96a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
@@ -77,7 +77,7 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
               onClick={() => switchMode(true)}
               className={`flex-1 py-2 text-sm transition-all duration-200 font-medium rounded-lg
                 ${isLogin
-                  ? "bg-primary shadow-sm border"
+                  ? "bg-[#e8c96a] shadow-sm border"
                   : "text-black"
                 }`}
             >
@@ -87,7 +87,7 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
               onClick={() => switchMode(false)}
               className={`flex-1 py-2 text-sm rounded-lg transition-all duration-200 font-medium
                 ${!isLogin
-                  ? "bg-primary text-white shadow-sm border border-yellow-100"
+                  ? "bg-[#e8c96a] text-white shadow-sm border border-yellow-100"
                   : "text-black"
                 }`}
             >
@@ -104,7 +104,7 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="w-full py-2 px-2 rounded-xl border
                   text-gray-800 text-sm placeholder:text-gray-400
-                  focus:outline-none focus:ring-1 focus:ring-[#1781fe]
+                  focus:outline-none focus:ring-1 focus:ring-[#e8c96a]
                   transition-all duration-200 mt-4"
               />
             )}
@@ -116,7 +116,7 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className={`w-full py-2 px-2 rounded-xl border
                 text-gray-800 text-sm placeholder:text-gray-400
-                focus:outline-none focus:ring-1 focus:ring-[#1781fe]
+                focus:outline-none focus:ring-1 focus:ring-[#e8c96a]
                 transition-all duration-200 ${!isLogin ? "mt-2" : "mt-4"}`}
             />
 
@@ -127,7 +127,7 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               className="w-full py-2 px-2 rounded-xl border
                 text-gray-800 text-sm placeholder:text-gray-400
-                focus:outline-none focus:ring-1 focus:ring-[#1781fe]
+                focus:outline-none focus:ring-1 focus:ring-[#e8c96a]
                 transition-all duration-200 mt-2"
             />
           </div>
@@ -143,7 +143,7 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="mt-5 w-full py-2 cursor-pointer bg-primary
+            className="mt-5 w-full py-2 cursor-pointer bg-[#e8c96a]
               text-white font-medium text-sm
               transition-all duration-200 active:scale-[0.98]
               disabled:opacity-60 disabled:cursor-not-allowed

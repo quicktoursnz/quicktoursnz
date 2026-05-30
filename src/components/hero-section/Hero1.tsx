@@ -4,7 +4,8 @@ const Hero1 = () => {
   return (
      <div className="home1-banner-section">
         <div className="banner-video-area">
-          <video autoPlay loop muted playsInline src="assets/video/home1-banner-video.mp4" />
+          {/* <video autoPlay loop muted playsInline src="assets/video/home1-banner-video.mp4" /> */}
+          <img className="h-117.5 w-full object-fill" src="/assets/img/home1/heroimage.jpg" alt="" />
         </div>
         <div className="banner-content-wrap">
           <div className="container">

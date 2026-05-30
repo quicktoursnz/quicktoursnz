@@ -35,10 +35,7 @@ const LocationSearchV1 = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
-
         .tour-section {
-          font-family: 'DM Sans', sans-serif;
           min-height: 100vh;
           background: linear-gradient(135deg, #f0f6ff 0%, #ffffff 50%, #e8f2ff 100%);
           display: flex;
@@ -85,18 +82,17 @@ const LocationSearchV1 = () => {
         .tour-left {}
 
         .tour-eyebrow {
-          font-family: 'DM Sans', sans-serif;
+          
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #3b82f6;
+          color: #e8c96a;
           margin-bottom: 1.25rem;
         }
 
         .tour-headline {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(2.4rem, 4vw, 3.4rem);
+          font-size: clamp(2rem, 4vw, 3.4rem);
           font-weight: 900;
           color: #0f1f3d;
           line-height: 1.1;
@@ -104,8 +100,8 @@ const LocationSearchV1 = () => {
         }
 
         .tour-headline em {
-          font-style: italic;
-          color: #3b82f6;
+          
+          color: #e8c96a;
         }
 
         .tour-desc {
@@ -133,13 +129,13 @@ const LocationSearchV1 = () => {
           border-radius: 999px;
           font-size: 12px;
           font-weight: 500;
-          color: #1e40af;
+          color: #e8c96a;
           box-shadow: 0 1px 3px rgba(59,130,246,0.08);
           transition: all 0.2s;
         }
         .badge:hover {
-          background: #eff6ff;
-          border-color: #93c5fd;
+        
+          border-color: #e8c96a;
           transform: translateY(-1px);
         }
 
@@ -153,7 +149,7 @@ const LocationSearchV1 = () => {
         }
 
         .form-title {
-          font-family: 'Playfair Display', serif;
+          
           font-size: 1.5rem;
           font-weight: 700;
           color: #0f1f3d;
@@ -187,7 +183,7 @@ const LocationSearchV1 = () => {
           margin-bottom: 6px;
         }
 
-        .field-required { color: #3b82f6; }
+        .field-required { color: #e8c96a; }
 
         .field-input, .field-select, .field-textarea {
           width: 100%;
@@ -207,7 +203,7 @@ const LocationSearchV1 = () => {
         .field-input::placeholder, .field-textarea::placeholder { color: #b0bfce; }
 
         .field-input:focus, .field-select:focus, .field-textarea:focus {
-          border-color: #3b82f6;
+          border-color: #e8c96a;
           box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
           background: #fff;
         }
@@ -236,11 +232,9 @@ const LocationSearchV1 = () => {
         .submit-btn {
           width: 100%;
           padding: 14px;
-          background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+          background: #e8c96a;
           border: none;
           border-radius: 12px;
-          color: #fff;
-          font-family: 'DM Sans', sans-serif;
           font-size: 14px;
           font-weight: 500;
           letter-spacing: 0.06em;
@@ -256,8 +250,8 @@ const LocationSearchV1 = () => {
         }
 
         .submit-btn:hover {
-          background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
-          box-shadow: 0 6px 24px rgba(37,99,235,0.36);
+          background: #e8c96a;
+          box-shadow: 0 6px 24px rgba(232, 201, 106, 0.36);
           transform: translateY(-1px);
         }
 

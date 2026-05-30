@@ -51,14 +51,14 @@ export default function WhyChooseUs() {
         {/* RIGHT — Content */}
         <div>
           {/* Eyebrow */}
-          <p className="text-xs font-semibold tracking-[0.18em] uppercase text-blue-500 mb-4">
+          <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#e8c96a] mb-4">
             Why Choose Us
           </p>
 
           {/* Headline */}
-          <h2 className="font-serif text-4xl lg:text-5xl font-black text-gray-900 leading-[1.1] mb-5">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 leading-[1.1] mb-5">
             The{" "}
-            <em className="italic text-blue-500 font-serif">difference</em>
+            <em className="text-[#e8c96a]">difference</em>
             <br />
             is in the details
           </h2>
@@ -78,7 +78,7 @@ export default function WhyChooseUs() {
                 </div>
                 {/* Text */}
                 <div className="pt-0.5">
-                  <h3 className="text-[15px] font-semibold text-gray-900 mb-1">{f.title}</h3>
+                  <h3 className="font-semibold text-gray-900 mb-1">{f.title}</h3>
                   <p className="text-sm text-gray-500 font-light leading-relaxed">{f.desc}</p>
                 </div>
               </div>
