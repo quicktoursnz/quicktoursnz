@@ -650,30 +650,21 @@ const Header = () => {
               </div>
               <div className="content">
                 <span>WhatsApp</span>
-                <a href="https://wa.me/91345533865">+91 345 533 865</a>
+                <a href="https://wa.me/64277883000">+64277883000</a>
               </div>
             </div>
-            <i className="bi bi-caret-down-fill contact-dropdown-btn" onClick={toggleContact} />
-            <ul className={`contact-list ${state.isContact ? "active" : ""}`}>
+            {/* <i className="bi bi-caret-down-fill contact-dropdown-btn" onClick={toggleContact} /> */}
+            {/* <ul className={`contact-list ${state.isContact ? "active" : ""}`}>
               <li className="single-contact">
                 <div className="icon">
                   <Image width={20} height={20} src="/assets/img/home1/icon/mail-icon.svg" alt="" />
                 </div>
                 <div className="content">
                   <span>Mail Support</span>
-                  <a href="mailto:info@example.com">info@example.com</a>
+                  <a href="mailto:info.quicktransfernz@gmail.com">info.quicktransfernz@gmail.com</a>
                 </div>
               </li>
-              <li className="single-contact">
-                <div className="icon">
-                  <Image width={20} height={20} src="/assets/img/home1/icon/live-chat.svg" alt="" />
-                </div>
-                <div className="content">
-                  <span>More Inquery</span>
-                  <a href="https://wa.me/91345533865">+91 345 533 865</a>
-                </div>
-              </li>
-            </ul>
+            </ul> */}
           </div>
           <div className="language-area d-lg-none d-block">
             <div className="language-btn">

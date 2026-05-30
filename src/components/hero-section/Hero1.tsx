@@ -9,8 +9,8 @@ const Hero1 = () => {
         <div className="banner-content-wrap">
           <div className="container">
             <div className="banner-content">
-              <h1>All-in-one Travel Booking.</h1>
-              <p>Highlights convenience and simplicity, Best for agencies with online &amp; mobile-friendly services.</p>
+              <h1>Explore Aotearoa in One Day</h1>
+              <p>Private guided day tours to New Zealand's most breathtaking landscapes — tailored entirely for your group.</p>
             </div>
           </div>
         </div>

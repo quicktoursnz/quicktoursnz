@@ -18,27 +18,29 @@ import Topbar from "@/components/topbar/Topbar";
 import DayOnePackage from "@/components/travel-package-section/DayOnePackageV1";
 import OfferPackage from "@/components/travel-package-section/OfferPackageV1";
 import TravelPackage from "@/components/travel-package-section/TravelPackageV1";
+import WhyChooseUs from "@/components/Whychooseus";
 export default function Home() {
   return (
-    <>
+    <div className="bg-white">
       <Topbar />
       <Header />
       <BannerSection />
-      <FilterComponent />
-      <OfferSection />
-      <DestinationSection />
-      <ServiceSection />
+      {/* <FilterComponent /> */}
+      {/* <OfferSection /> */}
+      {/* <DestinationSection /> */}
       <TravelPackage />
-      <OfferBannerSection />
-      <OfferPackage />
+      <ServiceSection />
+      {/* <OfferBannerSection /> */}
+      {/* <OfferPackage /> */}
       <LocationSearch />
-      <PartnerSection />
-      <DayOnePackage />
-      <BlogSection />
+      {/* <PartnerSection /> */}
+      {/* <DayOnePackage /> */}
+      {/* <BlogSection /> */}
+      <WhyChooseUs/>
       <TesimonialSection />
       <FaqSection />
       <CounterSection />
       <Footer />
-    </>
+    </div>
   );
 }

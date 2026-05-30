@@ -1,85 +1,406 @@
-import Link from 'next/link'
-import React from 'react'
+"use client";
+import { useState } from "react";
+import { Send, Clock, Users, MapPin, Star, MessageCircle } from "lucide-react";
 
 const LocationSearchV1 = () => {
+    const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    groupSize: "",
+    children: "",
+    preferredDate: "",
+    alternativeDate: "",
+    destinations: "",
+    description: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    await new Promise((r) => setTimeout(r, 1500));
+    setLoading(false);
+    alert("Inquiry sent! We'll reply within 2–4 hours.");
+  };
+
+  const badges = [
+    { icon: <Clock className="w-3.5 h-3.5" />, label: "Any Duration" },
+    { icon: <Users className="w-3.5 h-3.5" />, label: "Any Group Size" },
+    { icon: <MapPin className="w-3.5 h-3.5" />, label: "Any Destination" },
+    { icon: <Star className="w-3.5 h-3.5" />, label: "5-Star Rated" },
+    { icon: <MessageCircle className="w-3.5 h-3.5" />, label: "Reply Within 2 hrs" },
+  ];
   return (
-   <div className="home1-location-search-section mb-100">
-        <div className="container">
-          <div className="location-search-wrapper">
-            <div className="location-search-content">
-              <h2>Customize Your Travel Package!</h2>
-              <form className="location-search-area">
-                <div className="search-area">
-                  <div className="dropdown" id="search_vendor">
-                    <svg width={18} height={18} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                      <g>
-                        <path d="M12.5944 8.99968C12.5944 10.9878 10.9826 12.5996 8.99443 12.5996C7.00627 12.5996 5.39465 10.9878 5.39465 8.99968C5.39465 7.01152 7.00627 5.3999 8.99443 5.3999C10.9826 5.3999 12.5944 7.01152 12.5944 8.99968Z" />
-                        <path d="M17.4601 8.4599H16.2564C15.9858 4.86535 13.1291 2.00812 9.53458 1.7372V0.539976C9.53458 0.241723 9.29268 0 8.9946 0C8.69635 0 8.45462 0.241723 8.45462 0.539976V1.7372C4.85986 2.00812 2.00297 4.86535 1.73235 8.4599H0.540018C0.241723 8.4599 0 8.7017 0 8.99987C0 9.29813 0.241723 9.53985 0.539976 9.53985H1.73239C2.00297 13.1344 4.85991 15.9916 8.45441 16.2625V17.4601C8.45441 17.7583 8.69614 18 8.99439 18C9.29251 18 9.53428 17.7583 9.53428 17.4601V16.2625C13.1289 15.9918 15.9858 13.1346 16.2564 9.53985H17.4601C17.7583 9.53985 18 9.29813 18 8.99987C18 8.70175 17.7583 8.4599 17.4601 8.4599ZM8.99443 15.2096C5.56504 15.2094 2.78509 12.4291 2.78509 8.9997C2.78522 5.57014 5.56554 2.7902 8.99494 2.7902C12.4245 2.7902 15.2046 5.57048 15.2046 8.99987C15.2005 12.428 12.4225 15.2058 8.99443 15.2096Z" />
-                      </g>
-                    </svg>
-                    <input type="text" className="dropdown-search" placeholder="Select Your Location" />
-                    <ul className="dropdown-list">
-                      <li className="not-found" style={{ display: 'none' }}>Results Not Found!</li>
-                      <li>Cox's Bazar, BD</li>
-                      <li>Bangkok, TH</li>
-                      <li>Dubai, AE</li>
-                      <li>Singapore, SG</li>
-                      <li>Paris, FR</li>
-                      <li>London, UK</li>
-                      <li>New York, US</li>
-                      <li>Toronto, CA</li>
-                      <li>Male, MV</li>
-                      <li>Tokyo, JP</li>
-                      <li>Kuala Lumpur, MY</li>
-                      <li>Delhi, IN</li>
-                    </ul>
-                  </div>
-                  <Link href="/travel-package" className="primary-btn1">
-                    <span>
-                      Search Now
-                    </span>
-                    <span>
-                      Search Now
-                    </span>
-                  </Link>
-                </div>
-              </form>
-              <ul>
-                <li>
-                  <svg width={18} height={18} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx={9} cy={9} r="8.5" />
-                    <path d="M13.6193 7.07207L8.05903 12.6354C7.97043 12.721 7.85813 12.7654 7.74593 12.7654C7.68772 12.7655 7.63008 12.754 7.57632 12.7317C7.52256 12.7094 7.47376 12.6767 7.43272 12.6354L4.38073 9.58337C4.20642 9.41197 4.20642 9.13137 4.38073 8.95707L5.45912 7.87567C5.62462 7.71027 5.92002 7.71027 6.08552 7.87567L7.74593 9.53607L11.9146 5.36438C11.9557 5.32322 12.0045 5.29055 12.0581 5.26825C12.1118 5.24594 12.1694 5.23443 12.2275 5.23438C12.3456 5.23438 12.4579 5.28168 12.5406 5.36438L13.619 6.44587C13.7936 6.62017 13.7936 6.90077 13.6193 7.07207Z" />
-                  </svg>
-                  Make Your Favourite Package
-                </li>
-                <li>
-                  <svg width={18} height={18} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx={9} cy={9} r="8.5" />
-                    <path d="M13.6193 7.07207L8.05903 12.6354C7.97043 12.721 7.85813 12.7654 7.74593 12.7654C7.68772 12.7655 7.63008 12.754 7.57632 12.7317C7.52256 12.7094 7.47376 12.6767 7.43272 12.6354L4.38073 9.58337C4.20642 9.41197 4.20642 9.13137 4.38073 8.95707L5.45912 7.87567C5.62462 7.71027 5.92002 7.71027 6.08552 7.87567L7.74593 9.53607L11.9146 5.36438C11.9557 5.32322 12.0045 5.29055 12.0581 5.26825C12.1118 5.24594 12.1694 5.23443 12.2275 5.23438C12.3456 5.23438 12.4579 5.28168 12.5406 5.36438L13.619 6.44587C13.7936 6.62017 13.7936 6.90077 13.6193 7.07207Z" />
-                  </svg>
-                  Easily Customize Tours
-                </li>
-                <li>
-                  <svg width={18} height={18} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx={9} cy={9} r="8.5" />
-                    <path d="M13.6193 7.07207L8.05903 12.6354C7.97043 12.721 7.85813 12.7654 7.74593 12.7654C7.68772 12.7655 7.63008 12.754 7.57632 12.7317C7.52256 12.7094 7.47376 12.6767 7.43272 12.6354L4.38073 9.58337C4.20642 9.41197 4.20642 9.13137 4.38073 8.95707L5.45912 7.87567C5.62462 7.71027 5.92002 7.71027 6.08552 7.87567L7.74593 9.53607L11.9146 5.36438C11.9557 5.32322 12.0045 5.29055 12.0581 5.26825C12.1118 5.24594 12.1694 5.23443 12.2275 5.23438C12.3456 5.23438 12.4579 5.28168 12.5406 5.36438L13.619 6.44587C13.7936 6.62017 13.7936 6.90077 13.6193 7.07207Z" />
-                  </svg>
-                  Enjoy Your Trip
-                </li>
-              </ul>
-              <div className="contact-area">
-                <span>Meet Our Local Tour Guider!</span>
-                <Link href="/contact">Contact Now
-                  <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                </Link>
-              </div>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
+
+        .tour-section {
+          font-family: 'DM Sans', sans-serif;
+          min-height: 100vh;
+          background: linear-gradient(135deg, #f0f6ff 0%, #ffffff 50%, #e8f2ff 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 3rem 1.5rem;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .tour-section::before {
+          content: '';
+          position: absolute;
+          top: -120px; right: -120px;
+          width: 500px; height: 500px;
+          background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .tour-section::after {
+          content: '';
+          position: absolute;
+          bottom: -80px; left: -80px;
+          width: 400px; height: 400px;
+          background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        .tour-inner {
+          max-width: 1200px;
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1.3fr;
+          gap: 4rem;
+          align-items: center;
+          position: relative;
+          z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+          .tour-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+
+        /* LEFT */
+        .tour-left {}
+
+        .tour-eyebrow {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #3b82f6;
+          margin-bottom: 1.25rem;
+        }
+
+        .tour-headline {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(2.4rem, 4vw, 3.4rem);
+          font-weight: 900;
+          color: #0f1f3d;
+          line-height: 1.1;
+          margin-bottom: 1.5rem;
+        }
+
+        .tour-headline em {
+          font-style: italic;
+          color: #3b82f6;
+        }
+
+        .tour-desc {
+          font-size: 15px;
+          font-weight: 300;
+          color: #475569;
+          line-height: 1.75;
+          margin-bottom: 2.5rem;
+          max-width: 380px;
+        }
+
+        .badge-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+        .badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 14px;
+          background: #fff;
+          border: 1px solid #dbeafe;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 500;
+          color: #1e40af;
+          box-shadow: 0 1px 3px rgba(59,130,246,0.08);
+          transition: all 0.2s;
+        }
+        .badge:hover {
+          background: #eff6ff;
+          border-color: #93c5fd;
+          transform: translateY(-1px);
+        }
+
+        /* RIGHT - FORM CARD */
+        .form-card {
+          background: #fff;
+          border: 1px solid #e2eaf6;
+          border-radius: 24px;
+          padding: 2.5rem;
+          box-shadow: 0 8px 48px rgba(59,130,246,0.10), 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .form-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #0f1f3d;
+          margin-bottom: 4px;
+        }
+
+        .form-subtitle {
+          font-size: 13px;
+          color: #64748b;
+          margin-bottom: 1.75rem;
+          font-weight: 300;
+          line-height: 1.6;
+        }
+
+        .form-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+          margin-bottom: 14px;
+        }
+
+        .form-full { grid-column: 1 / -1; }
+
+        .field-label {
+          display: block;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #94a3b8;
+          margin-bottom: 6px;
+        }
+
+        .field-required { color: #3b82f6; }
+
+        .field-input, .field-select, .field-textarea {
+          width: 100%;
+          padding: 10px 14px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 14px;
+          color: #1e293b;
+          background: #f8faff;
+          border: 1px solid #e2eaf6;
+          border-radius: 10px;
+          outline: none;
+          transition: border 0.18s, box-shadow 0.18s, background 0.18s;
+          appearance: none;
+          -webkit-appearance: none;
+        }
+
+        .field-input::placeholder, .field-textarea::placeholder { color: #b0bfce; }
+
+        .field-input:focus, .field-select:focus, .field-textarea:focus {
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+          background: #fff;
+        }
+
+        .field-select {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 12px center;
+          padding-right: 36px;
+          cursor: pointer;
+        }
+
+        .field-textarea {
+          resize: vertical;
+          min-height: 90px;
+          line-height: 1.6;
+        }
+
+        .field-hint {
+          font-size: 11px;
+          color: #94a3b8;
+          margin-top: 5px;
+          font-weight: 300;
+        }
+
+        .submit-btn {
+          width: 100%;
+          padding: 14px;
+          background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+          border: none;
+          border-radius: 12px;
+          color: #fff;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 6px;
+          box-shadow: 0 4px 16px rgba(37,99,235,0.28);
+          transition: all 0.2s;
+        }
+
+        .submit-btn:hover {
+          background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+          box-shadow: 0 6px 24px rgba(37,99,235,0.36);
+          transform: translateY(-1px);
+        }
+
+        .submit-btn:active { transform: scale(0.98); }
+        .submit-btn:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+        .form-footer {
+          text-align: center;
+          font-size: 12px;
+          color: #94a3b8;
+          margin-top: 14px;
+          font-weight: 300;
+        }
+
+        .form-footer span { margin: 0 8px; }
+
+        .spinner {
+          width: 16px; height: 16px;
+          border: 2px solid rgba(255,255,255,0.3);
+          border-top-color: #fff;
+          border-radius: 50%;
+          animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+      `}</style>
+
+      <section className="tour-section">
+        <div className="tour-inner">
+
+          {/* LEFT */}
+          <div className="tour-left">
+            <p className="tour-eyebrow">Bespoke Private Tours</p>
+            <h2 className="tour-headline">
+              Want Something <em>Perfectly</em> Tailored?
+            </h2>
+            <p className="tour-desc">
+              No two groups are the same. Tell us your dream and we'll craft a private
+              New Zealand adventure built entirely around you — any date, any size, any destination.
+            </p>
+            <div className="badge-grid">
+              {badges.map((b, i) => (
+                <span className="badge" key={i}>
+                  {b.icon} {b.label}
+                </span>
+              ))}
             </div>
           </div>
+
+          {/* RIGHT */}
+          <div className="form-card">
+            <h3 className="form-title">Design Your Ideal Journey</h3>
+            <p className="form-subtitle">
+              Fill in a few details — every answer helps us tailor something truly special.
+            </p>
+
+            <div className="form-grid">
+              <div>
+                <label className="field-label">First Name <span className="field-required">*</span></label>
+                <input className="field-input" type="text" placeholder="Jane"
+                  value={form.firstName} onChange={e => setForm({ ...form, firstName: e.target.value })} />
+              </div>
+              <div>
+                <label className="field-label">Last Name <span className="field-required">*</span></label>
+                <input className="field-input" type="text" placeholder="Smith"
+                  value={form.lastName} onChange={e => setForm({ ...form, lastName: e.target.value })} />
+              </div>
+              <div>
+                <label className="field-label">Email Address <span className="field-required">*</span></label>
+                <input className="field-input" type="email" placeholder="jane@example.com"
+                  value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+              </div>
+              <div>
+                <label className="field-label">Phone / WhatsApp</label>
+                <input className="field-input" type="tel" placeholder="+64 21 000 0000"
+                  value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
+              </div>
+              <div>
+                <label className="field-label">Group Size</label>
+                <select className="field-select" value={form.groupSize}
+                  onChange={e => setForm({ ...form, groupSize: e.target.value })}>
+                  <option value="">Select...</option>
+                  <option>1–2 people</option>
+                  <option>3–5 people</option>
+                  <option>6–10 people</option>
+                  <option>10+ people</option>
+                </select>
+              </div>
+              <div>
+                <label className="field-label">Children / Minors?</label>
+                <select className="field-select" value={form.children}
+                  onChange={e => setForm({ ...form, children: e.target.value })}>
+                  <option value="">Select...</option>
+                  <option>None</option>
+                  <option>1 child</option>
+                  <option>2 children</option>
+                  <option>3+ children</option>
+                </select>
+              </div>
+              <div>
+                <label className="field-label">Preferred Date <span className="field-required">*</span></label>
+                <input className="field-input" type="date"
+                  value={form.preferredDate} onChange={e => setForm({ ...form, preferredDate: e.target.value })} />
+              </div>
+              <div>
+                <label className="field-label">Alternative Date</label>
+                <input className="field-input" type="date"
+                  value={form.alternativeDate} onChange={e => setForm({ ...form, alternativeDate: e.target.value })} />
+              </div>
+              <div className="form-full">
+                <label className="field-label">Destinations of Interest</label>
+                <input className="field-input" type="text"
+                  placeholder="e.g. Queenstown, Milford Sound, Mt Cook, Wanaka..."
+                  value={form.destinations} onChange={e => setForm({ ...form, destinations: e.target.value })} />
+                <p className="field-hint">Separate with commas. Not sure? Leave it to us!</p>
+              </div>
+              <div className="form-full">
+                <label className="field-label">Describe Your Ideal Tour <span className="field-required">*</span></label>
+                <textarea className="field-textarea"
+                  placeholder="e.g. Family of 5 — two teens and a 7-year-old. Milford Sound and Mt Cook over 3 days, easy walks and great food."
+                  value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} />
+                <p className="field-hint">The more detail you share, the better we can tailor your experience.</p>
+              </div>
+            </div>
+
+            <button className="submit-btn" onClick={handleSubmit} disabled={loading}>
+              {loading ? (
+                <><div className="spinner" /> Sending...</>
+              ) : (
+                <><Send size={15} /> Send My Inquiry</>
+              )}
+            </button>
+
+            <p className="form-footer">
+              No obligation <span>·</span> Reply within 2–4 hours <span>·</span> 100% private vehicle tours
+              <span>Call us: +64 274 733 590</span>
+            </p>
+          </div>
+
         </div>
-      </div>
+      </section>
+    </>
   )
 }
 
 export default LocationSearchV1
+

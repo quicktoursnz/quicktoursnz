@@ -4,13 +4,13 @@ import React from 'react'
 
 const TravelPackageV1 = () => {
   return (
-    <div className="home1-travel-package-section mb-100">
+    <div className="home1-travel-package-section mt-100 mb-100">
       <div className="container">
         <div className="row justify-content-center mb-50 wow animate fadeInDown" data-wow-delay="200ms" data-wow-duration="1500ms">
           <div className="col-xl-6 col-lg-8">
             <div className="section-title text-center">
               <h2>Popular Travel Package</h2>
-              <p>A curated list of the most popular travel packages based on different destinations.</p>
+              <p>Private vehicles, expert guides, unforgettable landscapes. One flat price for your whole group.</p>
             </div>
           </div>
         </div>

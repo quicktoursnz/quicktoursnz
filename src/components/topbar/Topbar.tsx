@@ -2,22 +2,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import AuthModal from '../authModal'
 
 const Topbar = () => {
       const [isActive, setIsActive] = useState(false);
+      const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
     setIsActive((prev) => !prev);
   }
     return (
-        <div className="topbar-area d-lg-block d-none">
+        <div className="topbar-area d-lg-block bg-white d-none">
             <div className="container">
                 <div className="topbar-wrap">
                     <div className="logo-and-search-area">
                         <Link href="/" className="header-logo">
                             <Image width={200} height={200} src="/assets/img/header-logo.svg" alt="" />
                         </Link>
-                        <form className="search-area">
+                        {/* <form className="search-area">
                             <div className="form-inner">
                                 <button type="submit">
                                     <svg width={16} height={16} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -28,11 +30,11 @@ const Topbar = () => {
                                 </button>
                                 <input type="text" placeholder="Find Your Perfect Tour Package" />
                             </div>
-                        </form>
+                        </form> */}
                     </div>
                     <div className="topbar-right">
                         <div className="support-and-language-area">
-                            <a href="#">Need Help?</a>
+                            {/* <a href="#">Need Help?</a> */}
                             <div className="language-area">
                                 <div className="language-btn" onClick={handleToggle}>
                                     <svg width={14} height={14} viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +57,7 @@ const Topbar = () => {
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" className="primary-btn1 black-bg">
+                        <button onClick={()=> setIsOpen(true)} className="primary-btn1 black-bg">
                             <span>
                                 <svg width={15} height={15} viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
                                     <g>
@@ -72,12 +74,14 @@ const Topbar = () => {
                                 </svg>
                                 Login
                             </span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
+              {isOpen && (
+                <AuthModal isOpen={isOpen} setIsOpen={setIsOpen} />
+                )}
         </div>
-
     )
 }
 
