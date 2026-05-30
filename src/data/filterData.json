@@ -1,0 +1,79 @@
+{
+  "filters": [
+    {
+      "key": "tours",
+      "label": "Tours",
+      "form": {
+        "destination": {
+          "placeholder": "Where are you going?",
+          "options": [
+            {
+              "title": "Bali Paradaise",
+              "country": "Indonesia",
+              "tours": 50
+            }
+          ]
+        },
+        "dateRange": "Sep 12 - Sep 20",
+        "category": ["Family Tour"]
+      }
+    },
+    {
+      "key": "hotels",
+      "label": "Hotels",
+      "form": {
+        "destination": {
+          "placeholder": "Where are you going?",
+          "options": [
+            {
+              "title": "Cox's Bazar",
+              "country": "Bangladesh",
+              "code": "BD"
+            }
+          ]
+        },
+        "checkin": "June 16 - June 20",
+        "checkout": "June 16 - June 20",
+        "rooms": [
+          {
+            "adults": 1,
+            "children": 0
+          }
+        ]
+      }
+    },
+    {
+      "key": "visa",
+      "label": "Visa",
+      "form": {
+        "country": [
+          {
+            "title": "Bangladesh",
+            "flag": "assets/img/home1/filter-bd-flag.png"
+          }
+        ],
+        "category": ["Travel Visa"],
+        "citizenship": ["Bangladeshi"],
+        "liveIn": ["Canada"]
+      }
+    },
+    {
+      "key": "experience",
+      "label": "Experience",
+      "form": {
+        "destination": {
+          "placeholder": "Where are you going?",
+          "options": [
+            {
+              "title": "Cox's Bazar",
+              "country": "Bangladesh",
+              "tours": 50
+            }
+          ]
+        },
+        "activity": ["Scuba Diving", "Water Rafting"],
+        "dateRange": "Sep 12 - Sep 20"
+      }
+    }
+  ]
+}
