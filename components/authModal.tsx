@@ -1,89 +1,3 @@
-// "use client";
-// import { useState } from "react";
-// import axios from "axios";
-
-// export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (open: boolean) => void }) {
-//   const [isLogin, setIsLogin] = useState(true);
-//   const [form, setForm] = useState({
-//     name: "",
-//     email: "",
-//     password: "",
-//   });
-
-//   const handleSubmit = async () => {
-//     try {
-//       const url = isLogin
-//         ? "/api/auth/login"
-//         : "/api/auth/signup";
-
-//       const res = await axios.post(url, form);
-
-//       if (isLogin) {
-//         localStorage.setItem("token", res.data.token);
-//         alert("Login successful");
-//       } else {
-//         alert("Signup successful");
-//         setIsLogin(true);
-//       }
-//     } catch (err: any) {
-//       alert(err.response?.data?.message);
-//     }
-//   };
-
-//   return (
-//     <div className="fixed inset-0 bg-black/40 flex justify-center items-center">
-//       <div className="bg-white p-6 rounded-xl w-80 z-999">
-//         <h2 className="text-xl font-bold mb-4">
-//           {isLogin ? "Login" : "Signup"}
-//         </h2>
-
-//         {!isLogin && (
-//           <input
-//             placeholder="Name"
-//             className="w-full mb-2 p-2 border"
-//             onChange={(e) =>
-//               setForm({ ...form, name: e.target.value })
-//             }
-//           />
-//         )}
-
-//         <input
-//           placeholder="Email"
-//           className="w-full mb-2 p-2 border"
-//           onChange={(e) =>
-//             setForm({ ...form, email: e.target.value })
-//           }
-//         />
-
-//         <input
-//           type="password"
-//           placeholder="Password"
-//           className="w-full mb-2 p-2 border"
-//           onChange={(e) =>
-//             setForm({ ...form, password: e.target.value })
-//           }
-//         />
-
-//         <button
-//           onClick={handleSubmit}
-//           className="w-full bg-blue-500 text-white py-2 rounded"
-//         >
-//           {isLogin ? "Login" : "Signup"}
-//         </button>
-
-//         <p
-//           className="text-sm mt-3 cursor-pointer text-blue-500"
-//           onClick={() => setIsLogin(!isLogin)}
-//         >
-//           {isLogin
-//             ? "Create account"
-//             : "Already have an account?"}
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
-
 "use client";
 import { useState } from "react";
 import axios from "axios";
@@ -158,7 +72,7 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
           </div>
 
           {/* Tab Switcher */}
-          <div className="flex bg-[#ff7328b6] rounded-xl p-1 mb-6">
+          <div className="flex bg-black rounded-xl p-1 mb-6">
             <button
               onClick={() => switchMode(true)}
               className={`flex-1 py-2 text-sm rounded-lg transition-all duration-200 font-medium
@@ -230,7 +144,7 @@ export default function AuthModal({ isOpen, setIsOpen }: { isOpen: boolean; setI
             onClick={handleSubmit}
             disabled={loading}
             className="mt-5 w-full py-2.5 cursor-pointer rounded-xl bg-main hover:bg-yellow-500
-              text-gray-900 font-medium text-sm
+              text-white font-medium text-sm
               transition-all duration-200 active:scale-[0.98]
               disabled:opacity-60 disabled:cursor-not-allowed
               flex items-center justify-center gap-2"

@@ -29,7 +29,7 @@ export default function RootLayout({
         <NavbarAndFooterProvider>
         {children}
         <WhatsappButton
-          phoneNumber="642108111920"
+          phoneNumber=""
         />
         </NavbarAndFooterProvider>
         </UserProvider>

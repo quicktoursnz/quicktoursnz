@@ -39,11 +39,11 @@ const ContactUsPage = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone size={14} className="txt-main shrink-0" />
-                      <p className="text-sm text-muted-foreground">+64 2108111920</p>
+                      <p className="text-sm text-muted-foreground">1234567890</p>
                     </div>
                     <div className="flex items-center mt-3 gap-2">
                       <Mail size={14} className="txt-main shrink-0" />
-                      <p className="text-sm text-muted-foreground">info@milkywaytours.com</p>
+                      <p className="text-sm text-muted-foreground">info@quicktours.com</p>
                     </div>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ const ContactUsPage = () => {
                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                   <ArrowRight/>
                 </div>
-                <div className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90">
+                <div className="rounded-full px-8 bg-primary text-white hover:bg-primary/90">
                   Get Started
                 </div>
               </button>

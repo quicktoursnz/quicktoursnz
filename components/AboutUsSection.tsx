@@ -19,12 +19,12 @@ const AboutUsSection = () => {
             About Us
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-6">
-            About MilkyWay
+            About Quick
             <br />
             Tours & Transfers
           </h2>
           <p className="text-muted-foreground leading-relaxed max-w-md">
-            MilkyWay Tours & Transfers is a trusted travel service provider in New Zealand, 
+            Quick Tours & Transfers is a trusted travel service provider in New Zealand, 
             focused on delivering smooth, comfortable, and reliable journeys.
           </p>
           <p className="text-muted-foreground leading-relaxed mt-2 max-w-md">

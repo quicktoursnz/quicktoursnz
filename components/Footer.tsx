@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
 
           <p className="text-sm leading-relaxed max-w-50">
-            Milky Ways Tour is a modern travel platform offering exciting and well-planned tour experiences across top destinations.
+            Quick Tours is a modern travel platform offering exciting and well-planned tour experiences across top destinations.
           </p>
 
           {/* Social icons */}
@@ -116,7 +116,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-400">
-          <p>Copyigt © 2026 MilkyWay Tours & Transfers &nbsp;|    </p>
+          <p>Copyigt © 2026 Quick Tours & Transfers &nbsp;|    </p>
           <div className="flex gap-4">
             <p className="hover:text-amber-500 transition-colors">Terms of Use</p>
             <span>|</span>
