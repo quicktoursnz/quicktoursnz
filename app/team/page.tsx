@@ -1,9 +1,9 @@
-import TeamPage from '@/components/TeamPage'
+// import TeamPage from '@/components/TeamPage'
 
 const page = () => {
   return (
     <div>
-      <TeamPage/>
+      {/* <TeamPage/> */}
     </div>
   )
 }
