@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         {/* Logo */}
         <button className="flex items-center gap-2">
-          <img src='/logo.png' alt="logo" className="md:w-48 w-28 rounded-lg" />
+          <img src='/logo.png' alt="logo" className="md:w-32 w-28 rounded-lg" />
         </button>
 
 

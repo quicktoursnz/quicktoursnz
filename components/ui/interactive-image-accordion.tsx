@@ -93,43 +93,84 @@ export function LandingAccordionItem() {
   };
 
   return (
-    <div className="font-sans">
-      <section className="container mx-auto px-4 pt-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          {/* Left Side: Text Content */}
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <p className="text-gray-600 text-sm md:text-base mb-2">All you need is QuickTours</p>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tighter">
-              Reliable Airport Transfers & Private Tours Across New Zealand
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 max-w-xl mx-auto lg:mx-0">
-              Experience the beauty of New Zealand with our professional and comfortable travel services.
-            </p>
-            <div className="mt-8">
-              <Link
-                href="/tours"
-                className="inline-block bg-black text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-colors duration-300"
-              >
-                Explore Tours
-              </Link>
-            </div>
-          </div>
+    // <div className="font-sans">
+    //   <section className="container mx-auto px-4 pt-4">
+    //     <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+    //       {/* Left Side: Text Content */}
+    //       <div className="w-full lg:w-1/2 text-center lg:text-left">
+    //         <p className="text-gray-600 text-sm md:text-base mb-2">All you need is QuickTours</p>
+    //         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tighter">
+    //           Reliable Airport Transfers & Private Tours Across New Zealand
+    //         </h1>
+    //         <p className="mt-6 text-lg text-gray-700 max-w-xl mx-auto lg:mx-0">
+    //           Experience the beauty of New Zealand with our professional and comfortable travel services.
+    //         </p>
+    //         <div className="mt-8">
+    //           <Link
+    //             href="/tours"
+    //             className="inline-block bg-black text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-colors duration-300"
+    //           >
+    //             Explore Tours
+    //           </Link>
+    //         </div>
+    //       </div>
 
-          {/* Right Side: Image Accordion */}
-          <div className="w-full lg:w-1/2">
-            <div className="flex flex-row items-center justify-center gap-2 md:gap-4 overflow-x-auto py-4">
-              {accordionItems.map((item, index) => (
-                <AccordionItem
-                  key={item.id}
-                  item={item}
-                  isActive={index === activeIndex}
-                  onMouseEnter={() => handleItemHover(index)}
-                />
-              ))}
-            </div>
+    //       {/* Right Side: Image Accordion */}
+    //       <div className="w-full lg:w-1/2">
+    //         <div className="flex flex-row items-center justify-center gap-2 md:gap-4 overflow-x-auto py-4">
+    //           {accordionItems.map((item, index) => (
+    //             <AccordionItem
+    //               key={item.id}
+    //               item={item}
+    //               isActive={index === activeIndex}
+    //               onMouseEnter={() => handleItemHover(index)}
+    //             />
+    //           ))}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </section>
+    // </div>
+        <section className="relative w-full h-[90vh] min-h-150 overflow-hidden flex items-center">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/videos/hero-poster.jpg"
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay for text legibility */}
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 lg:px-12">
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <p className="text-gray-200 text-sm md:text-base mb-2">
+            All you need is QuickTours
+          </p>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tighter">
+            Reliable Airport Transfers &amp; Private Tours Across New Zealand
+          </h1>
+          <p className="mt-6 text-lg text-gray-100 max-w-xl mx-auto lg:mx-0">
+            Experience the beauty of New Zealand with our professional and
+            comfortable travel services.
+          </p>
+          <div className="mt-8">
+            <Link
+              href="/tours"
+              className="inline-block bg-white text-black font-semibold px-8 py-3 rounded-full shadow-lg transition-colors duration-300"
+            >
+              Explore Tours
+            </Link>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
