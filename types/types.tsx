@@ -12,6 +12,17 @@ export interface ToursType {
   rating: number;
   createdAt: Date;
 }
+export interface SkiSubPackage {
+  title: string;
+  duration: string;
+  meetingPoint: string;
+  overview: string;
+  bestFor: string;
+  includes: string[];
+  additionalInfo: string[];
+  slug: string;
+}
+
 export interface ToursType2 {
   title: string;
   image: string;
@@ -21,6 +32,7 @@ export interface ToursType2 {
   bestFor: string;
   buttonText: string;
   slug: string;
+  subPackages?: SkiSubPackage[];
 }
 
 export interface BookingsType {

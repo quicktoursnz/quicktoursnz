@@ -87,7 +87,93 @@ export const PackageData = [
         includes: [],
         bestFor: '',
         buttonText: '',
-        slug: 'ski-transfers'
+        slug: 'ski-transfers',
+        subPackages: [
+            {
+                title: '⛷️ SKI TRANSFERS – Queenstown to Coronet Peak',
+                duration: '8 Hours',
+                meetingPoint: 'Queenstown, New Zealand',
+                overview: 'Enjoy a comfortable and hassle-free private ski transfer from Queenstown to Coronet Peak, one of New Zealand\'s most popular ski destinations. Skip the stress of driving and parking while traveling in a spacious, well-maintained vehicle with an experienced local driver.\n\nWhether you\'re visiting with family, friends, or a larger group, our private ski transfers ensure a smooth and enjoyable journey so you can focus on making the most of your day on the slopes.',
+                bestFor: 'Families, couples, groups, and winter sports enthusiasts.',
+                includes: [
+                    'Private return transfers',
+                    'Professional local drivers',
+                    'Comfortable and clean vehicles',
+                    'Ample space for skis and snowboards',
+                    'Flexible pickup and drop-off service',
+                    'Door-to-door transportation'
+                ],
+                additionalInfo: [
+                    'Services operate subject to weather and road conditions.',
+                    'Safety is our highest priority during winter travel.',
+                    'Advance booking is recommended during peak ski season.'
+                ],
+                slug: 'coronet-peak'
+            },
+            {
+                title: '⛷️ SKI TRANSFERS – Queenstown to The Remarkables',
+                duration: '8 Hours',
+                meetingPoint: 'Queenstown, New Zealand',
+                overview: 'Travel comfortably to The Remarkables with our private ski transfer service from Queenstown. Known for its breathtaking alpine scenery and excellent skiing terrain, The Remarkables offers an unforgettable winter experience.\n\nAvoid crowded shuttle services and enjoy the convenience of private transportation with flexible schedules, professional drivers, and plenty of space for your ski equipment.',
+                bestFor: 'Skiers, snowboarders, families, and winter holiday travelers.',
+                includes: [
+                    'Private return transfers',
+                    'Experienced local drivers',
+                    'Spacious and comfortable vehicles',
+                    'Storage space for ski and snowboard gear',
+                    'Flexible pickup and drop-off timings',
+                    'Personalized travel experience'
+                ],
+                additionalInfo: [
+                    'Transfers may vary depending on weather and road conditions.',
+                    'Vehicles are selected based on group size and equipment requirements.',
+                    'Early reservations are recommended during ski season.'
+                ],
+                slug: 'the-remarkables'
+            },
+            {
+                title: '⛷️ SKI TRANSFERS – Queenstown to Cardrona Alpine Resort',
+                duration: '8 Hours',
+                meetingPoint: 'Queenstown, New Zealand',
+                overview: 'Experience a smooth and stress-free journey to Cardrona Alpine Resort with Quick Tours NZ private ski transfers. Renowned for its world-class slopes and stunning mountain landscapes, Cardrona is a favorite destination for skiers and snowboarders of all levels.\n\nOur private transfer service offers comfort, flexibility, and convenience, ensuring you arrive relaxed and ready for your mountain adventure.',
+                bestFor: 'Families, groups, beginner and advanced skiers, and snowboarders.',
+                includes: [
+                    'Private return transportation',
+                    'Professional and friendly drivers',
+                    'Comfortable vehicles',
+                    'Space for ski and snowboard equipment',
+                    'Flexible departure schedules',
+                    'Door-to-door service'
+                ],
+                additionalInfo: [
+                    'Services are subject to weather and road accessibility.',
+                    'Travel times may vary during peak winter periods.',
+                    'Booking in advance is highly recommended.'
+                ],
+                slug: 'cardrona-alpine-resort'
+            },
+            {
+                title: '⛷️ SKI TRANSFERS – Queenstown to Treble Cone',
+                duration: '8 Hours',
+                meetingPoint: 'Queenstown, New Zealand',
+                overview: 'Travel effortlessly to Treble Cone with our private ski transfer service from Queenstown. Famous for its breathtaking alpine scenery and challenging terrain, Treble Cone offers one of New Zealand\'s most exciting ski experiences.\n\nEnjoy a comfortable journey with experienced local drivers, flexible scheduling, and private transportation designed to make your winter adventure seamless and enjoyable.',
+                bestFor: 'Experienced skiers, adventure travelers, groups, and winter sports enthusiasts.',
+                includes: [
+                    'Private return transfers',
+                    'Professional local drivers',
+                    'Comfortable and spacious vehicles',
+                    'Ski and snowboard equipment storage',
+                    'Flexible pickup and return options',
+                    'Personalized service'
+                ],
+                additionalInfo: [
+                    'Transfers operate subject to weather and mountain conditions.',
+                    'Safety and customer comfort remain our top priorities.',
+                    'Advance bookings are encouraged during the winter season.'
+                ],
+                slug: 'treble-cone'
+            }
+        ]
     },
     {
         title: 'Lake Tekapo',
