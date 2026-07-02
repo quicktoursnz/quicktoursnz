@@ -22,59 +22,71 @@ const SkiAccordionItem = ({ subPackage, parentSlug, isOpen, onToggle }: { subPac
       </button>
       
       {isOpen && (
-        <div className="px-6 pb-6">
-          <div className="flex flex-wrap gap-6 mb-6">
-            <div className="flex items-center gap-2">
-              <span className="font-semibold text-gray-700">Duration:</span>
-              <span className="text-gray-600">{subPackage.duration}</span>
+        <div className="pb-6">
+          <div className="px-6 mb-6">
+            <div className="rounded-2xl overflow-hidden h-64">
+              <img
+                src={subPackage.image}
+                alt={subPackage.title}
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="flex items-center gap-2">
-              <span className="font-semibold text-gray-700">Meeting Point:</span>
-              <span className="text-gray-600">{subPackage.meetingPoint}</span>
+          </div>
+          
+          <div className="px-6">
+            <div className="flex flex-wrap gap-6 mb-6">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-gray-700">Duration:</span>
+                <span className="text-gray-600">{subPackage.duration}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-gray-700">Meeting Point:</span>
+                <span className="text-gray-600">{subPackage.meetingPoint}</span>
+              </div>
             </div>
-          </div>
 
-          <div className="mb-6">
-            <h3 className="font-semibold text-xl text-[#1a1a1a] mb-2">Overview</h3>
-            <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-              {subPackage.overview}
-            </p>
-          </div>
+            <div className="mb-6">
+              <h3 className="font-semibold text-xl text-[#1a1a1a] mb-2">Overview</h3>
+              <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+                {subPackage.overview}
+              </p>
+            </div>
 
-          <div className="mb-6">
-            <h3 className="font-semibold text-xl text-[#1a1a1a] mb-2">Best For</h3>
-            <p className="text-gray-600">{subPackage.bestFor}</p>
-          </div>
+            <div className="mb-6">
+              <h3 className="font-semibold text-xl text-[#1a1a1a] mb-2">Best For</h3>
+              <p className="text-gray-600">{subPackage.bestFor}</p>
+            </div>
 
-          <div className="mb-6">
-            <h3 className="font-semibold text-xl text-[#1a1a1a] mb-3">What's Included</h3>
-            <ul className="space-y-2">
-              {subPackage.includes.map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-gray-600">
-                  <span className="text-main font-bold">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className="mb-6">
+              <h3 className="font-semibold text-xl text-[#1a1a1a] mb-3">What's Included</h3>
+              <ul className="space-y-2">
+                {subPackage.includes.map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-gray-600">
+                    <span className="text-main font-bold">•</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="mb-6">
-            <h3 className="font-semibold text-xl text-[#1a1a1a] mb-3">Additional Information</h3>
-            <ul className="space-y-2">
-              {subPackage.additionalInfo.map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-gray-600">
-                  <span className="text-main font-bold">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className="mb-6">
+              <h3 className="font-semibold text-xl text-[#1a1a1a] mb-3">Additional Information</h3>
+              <ul className="space-y-2">
+                {subPackage.additionalInfo.map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-gray-600">
+                    <span className="text-main font-bold">•</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <button 
-            onClick={() => router.push(`/${parentSlug}/book-now`)} 
-            className="w-full cursor-pointer bg-main text-white font-bold py-4 rounded-2xl transition-all text-sm tracking-wide shadow-lg shadow-amber-400/20">
-            Book Now
-          </button>
+            <button 
+              onClick={() => router.push(`/${parentSlug}/book-now`)} 
+              className="w-full cursor-pointer bg-main text-white font-bold py-4 rounded-2xl transition-all text-sm tracking-wide shadow-lg shadow-amber-400/20">
+              Book Now
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -108,7 +108,8 @@ export const PackageData = [
                     'Safety is our highest priority during winter travel.',
                     'Advance booking is recommended during peak ski season.'
                 ],
-                slug: 'coronet-peak'
+                slug: 'coronet-peak',
+                image: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
             },
             {
                 title: '⛷️ SKI TRANSFERS – Queenstown to The Remarkables',
@@ -129,7 +130,8 @@ export const PackageData = [
                     'Vehicles are selected based on group size and equipment requirements.',
                     'Early reservations are recommended during ski season.'
                 ],
-                slug: 'the-remarkables'
+                slug: 'the-remarkables',
+                image: '/packageImages/skiTransfers.jpg'
             },
             {
                 title: '⛷️ SKI TRANSFERS – Queenstown to Cardrona Alpine Resort',
@@ -150,7 +152,8 @@ export const PackageData = [
                     'Travel times may vary during peak winter periods.',
                     'Booking in advance is highly recommended.'
                 ],
-                slug: 'cardrona-alpine-resort'
+                slug: 'cardrona-alpine-resort',
+                image: '/packageImages/SkiFieldTransport.jpg'
             },
             {
                 title: '⛷️ SKI TRANSFERS – Queenstown to Treble Cone',
@@ -171,7 +174,8 @@ export const PackageData = [
                     'Safety and customer comfort remain our top priorities.',
                     'Advance bookings are encouraged during the winter season.'
                 ],
-                slug: 'treble-cone'
+                slug: 'treble-cone',
+                image: '/packageImages/skiTransfers.jpg'
             }
         ]
     },

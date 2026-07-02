@@ -21,6 +21,7 @@ export interface SkiSubPackage {
   includes: string[];
   additionalInfo: string[];
   slug: string;
+  image: string;
 }
 
 export interface ToursType2 {
